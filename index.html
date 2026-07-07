@@ -2,123 +2,148 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yavru Kuş Web Sitesi Mock-up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AGS Puan Hesaplama</title>
     <style>
-        /* Temel Sayfa Stilleri */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            background-color: #f4f7f6; /* Açık pastel bir arka plan */
+            padding: 15px 10px;
+            background-color: #f4f7f6;
             color: #333;
+            /* Dokunmatik cihazlarda çift tıklama ile yakınlaştırmayı engeller */
+            touch-action: manipulation; 
         }
 
-        /* Header (Üst Kısım) Stilleri */
-        header {
-            background-color: #fff; /* Beyaz header arka planı */
-            padding: 20px 50px;
-            display: flex; /* İçerikleri esnek kutu olarak yerleştir */
-            justify-content: space-between; /* Soldaki logo ve sağdaki menü arasını aç */
-            align-items: center; /* Dikey olarak ortala */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Hafif bir gölge */
+        .main-content {
+            width: 100%;
+            max-width: 380px; /* Telefon ekranları için ideal maksimum genişlik */
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-radius: 12px;
+            box-sizing: border-box;
         }
 
-        /* Logo ve Başlık Alanı */
-        .logo-container {
-            display: flex; /* İkon ve metni yan yana getir */
-            align-items: center; /* Dikey olarak ortala */
-            gap: 15px; /* İkon ve metin arasındaki boşluk */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
-        .logo-container h1 {
-            font-size: 2.2em;
-            margin: 0;
-            color: #2c3e50; /* Koyu lacivert tonu */
-            font-weight: 700;
+        th, td {
+            padding: 10px 2px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .logo-container img {
-            height: 50px; /* İkon yüksekliği */
-            width: auto;
-        }
-
-        /* Navigasyon Menüsü */
-        nav ul {
-            list-style: none; /* Liste işaretlerini kaldır */
-            margin: 0;
-            padding: 0;
-            display: flex; /* Menü öğelerini yan yana getir */
-            gap: 30px; /* Menü öğeleri arasındaki boşluk */
-        }
-
-        nav a {
-            text-decoration: none; /* Link alt çizgisini kaldır */
-            color: #34495e; /* Menü metin rengi */
+        th {
             font-weight: 600;
-            font-size: 1.1em;
-            transition: color 0.3s ease; /* Renk geçiş efekti */
+            padding-bottom: 10px;
+            font-size: 13px;
+            color: #64748b;
         }
 
-        nav a:hover {
-            color: #27ae60; /* Üzerine gelince sevimli bir yeşil tonu */
+        .header-title {
+            text-align: center;
         }
 
-        /* Hero (Ana Görsel) Bölümü Stili (Görseldeki banner) */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
+        .subject-col {
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            color: #334155;
+            width: 45%;
         }
 
-        .hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Görseli kesmeden sığdır */
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35%;
         }
 
-        .hero-text {
-            position: absolute;
-            bottom: 30px;
-            left: 50px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .input-group span {
+            margin: 0 4px;
+            font-size: 1.2em;
+            color: #cbd5e1;
         }
 
-        .hero-text h2 {
-            font-size: 2.5em;
+        .info-col {
+            text-align: right;
+            color: #94a3b8;
+            width: 20%;
+            font-size: 11px;
+        }
+
+        input[type="number"] {
+            width: 38px;
+            height: 28px;
+            padding: 0;
+            text-align: center;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #f8fafc;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input[type="number"]:focus {
+            border-color: #27ae60;
+            background-color: #fff;
+            box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
+        }
+
+        /* Input oklarını gizleme */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
             margin: 0;
         }
-    </style>
-</head>
-<body>
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
 
-    <!-- Header Bölümü -->
-    <header>
-        <div class="logo-container">
-            <!-- Gerçek bir kuş ikonu dosyasının yolunu buraya yazın -->
-            <img src="path/to/your/fledgling_bird_icon.png" alt="Yavru Kuş İkonu">
-            <h1>Yavru Kuş</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Ana Sayfa</a></li>
-                <li><a href="#">Galeri</a></li>
-                <li><a href="#">Hakkımızda</a></li>
-                <li><a href="#">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
+        .calculate-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 15px;
+            color: white;
+            background-color: #27ae60;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
 
-    <!-- Ana Görsel (Hero) Bölümü - Görseldeki banner -->
-    <div class="hero">
-        <img src="path/to/your/large_fledgling_photo.jpg" alt="Ana Görsel - Yavru Kuş">
-        <div class="hero-text">
-            <h2>Sevimli Kuşlar Dünyasına Hoş Geldiniz!</h2>
-        </div>
-    </div>
+        .calculate-btn:active {
+            transform: scale(0.98); /* Butona basılma hissi */
+        }
 
-    <!-- Ana içerik buraya gelecek -->
+        .calculate-btn:hover {
+            background-color: #219150;
+        }
 
-</body>
-</html>
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0fdf4;
+            border: 1px solid #dcfce7;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .results h3 {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            color: #166534;
+        }
+
+        .results p {
+            margin: 5px 0;
