@@ -30,6 +30,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            table-layout: fixed; /* Sütun genişliklerini sabitler, kaymayı önler */
         }
 
         th, td {
@@ -46,6 +47,7 @@
 
         .header-title {
             text-align: center;
+            width: 40%;
         }
 
         .subject-col {
@@ -53,14 +55,14 @@
             font-weight: 600;
             font-size: 13px;
             color: #334155;
-            width: 45%;
+            width: 40%;
         }
 
         .input-group {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 35%;
+            width: 100%;
         }
 
         .input-group span {
@@ -106,9 +108,14 @@
             -moz-appearance: textfield;
         }
 
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
         .calculate-btn {
-            display: block;
-            width: 100%;
+            flex: 2; /* Hesapla butonu daha geniş alan kaplar */
             padding: 12px;
             font-size: 15px;
             color: white;
@@ -121,12 +128,29 @@
             letter-spacing: 0.5px;
         }
 
-        .calculate-btn:active {
-            transform: scale(0.98); /* Butona basılma hissi */
+        .calculate-btn:active, .clear-btn:active {
+            transform: scale(0.96); /* Butona basılma hissi */
         }
 
         .calculate-btn:hover {
             background-color: #219150;
+        }
+
+        .clear-btn {
+            flex: 1; /* Temizle butonu daha dar alan kaplar */
+            padding: 12px;
+            font-size: 15px;
+            color: #475569;
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease, transform 0.1s ease;
+            font-weight: 600;
+        }
+
+        .clear-btn:hover {
+            background-color: #e2e8f0;
         }
 
         .results {
@@ -166,7 +190,7 @@
         <thead>
             <tr>
                 <th class="subject-col"></th>
-                <th class="header-title">Doğru &nbsp;/&nbsp; Yanlış</th>
+                <th class="header-title">Doğru / Yanlış</th>
                 <th class="info-col"></th>
             </tr>
         </thead>
@@ -237,7 +261,10 @@
         </tbody>
     </table>
 
-    <button class="calculate-btn" onclick="hesapla()">Hesapla</button>
+    <div class="button-group">
+        <button class="clear-btn" onclick="temizle()">Temizle</button>
+        <button class="calculate-btn" onclick="hesapla()">Hesapla</button>
+    </div>
 
     <div class="results" id="sonuc-kutusu">
         <h3>Hesaplama Sonuçları</h3>
@@ -287,6 +314,15 @@ function hesapla() {
     document.getElementById('toplam-puan').innerText = toplamPuan.toFixed(3);
     
     document.getElementById('sonuc-kutusu').style.display = 'block';
+}
+
+function temizle() {
+    // Sayfadaki tüm inputları bul ve içlerini boşalt
+    const inputs = document.querySelectorAll('input[type="number"]');
+    inputs.forEach(input => input.value = '');
+    
+    // Sonuç kutusunu gizle
+    document.getElementById('sonuc-kutusu').style.display = 'none';
 }
 </script>
 
