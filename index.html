@@ -11,13 +11,12 @@
             padding: 15px 10px;
             background-color: #f4f7f6;
             color: #333;
-            /* Dokunmatik cihazlarda çift tıklama ile yakınlaştırmayı engeller */
             touch-action: manipulation; 
         }
 
         .main-content {
             width: 100%;
-            max-width: 380px; /* Telefon ekranları için ideal maksimum genişlik */
+            max-width: 380px; /* Telefon ekranları için ideal */
             margin: 0 auto;
             padding: 15px;
             background-color: #ffffff;
@@ -26,11 +25,21 @@
             box-sizing: border-box;
         }
 
+        /* Üst Başlık Stili */
+        .app-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 5px 0 15px 0;
+            letter-spacing: 0.5px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
-            table-layout: fixed; /* Sütun genişliklerini sabitler, kaymayı önler */
+            table-layout: fixed;
         }
 
         th, td {
@@ -98,7 +107,6 @@
             box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.1);
         }
 
-        /* Input oklarını gizleme */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -115,7 +123,7 @@
         }
 
         .calculate-btn {
-            flex: 2; /* Hesapla butonu daha geniş alan kaplar */
+            flex: 2;
             padding: 12px;
             font-size: 15px;
             color: white;
@@ -129,7 +137,7 @@
         }
 
         .calculate-btn:active, .clear-btn:active {
-            transform: scale(0.96); /* Butona basılma hissi */
+            transform: scale(0.96);
         }
 
         .calculate-btn:hover {
@@ -137,7 +145,7 @@
         }
 
         .clear-btn {
-            flex: 1; /* Temizle butonu daha dar alan kaplar */
+            flex: 1;
             padding: 12px;
             font-size: 15px;
             color: #475569;
@@ -186,6 +194,8 @@
 <body>
 
 <div class="main-content">
+    <div class="app-title">Yavru Kuş</div>
+
     <table>
         <thead>
             <tr>
@@ -317,11 +327,8 @@ function hesapla() {
 }
 
 function temizle() {
-    // Sayfadaki tüm inputları bul ve içlerini boşalt
     const inputs = document.querySelectorAll('input[type="number"]');
     inputs.forEach(input => input.value = '');
-    
-    // Sonuç kutusunu gizle
     document.getElementById('sonuc-kutusu').style.display = 'none';
 }
 </script>
