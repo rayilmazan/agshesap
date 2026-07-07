@@ -147,3 +147,148 @@
 
         .results p {
             margin: 5px 0;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        .score {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: #15803d;
+            margin: 8px 0 0 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-content">
+    <table>
+        <thead>
+            <tr>
+                <th class="subject-col"></th>
+                <th class="header-title">Doğru &nbsp;/&nbsp; Yanlış</th>
+                <th class="info-col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="subject-col">Sözel Yetenek:</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="15" id="sozel-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="15" id="sozel-y">
+                </td>
+                <td class="info-col">15 Soru</td>
+            </tr>
+            <tr>
+                <td class="subject-col">Sayısal Y.:</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="15" id="sayisal-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="15" id="sayisal-y">
+                </td>
+                <td class="info-col">15 Soru</td>
+            </tr>
+            <tr>
+                <td class="subject-col">Tarih:</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="6" id="tarih-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="6" id="tarih-y">
+                </td>
+                <td class="info-col">6 Soru</td>
+            </tr>
+            <tr>
+                <td class="subject-col">Türkiye Coğ.:</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="6" id="cografya-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="6" id="cografya-y">
+                </td>
+                <td class="info-col">6 Soru</td>
+            </tr>
+            <tr>
+                <td class="subject-col">MEB Sistemi:</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="30" id="meb-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="30" id="meb-y">
+                </td>
+                <td class="info-col">30 Soru</td>
+            </tr>
+            <tr>
+                <td class="subject-col">Mevzuat:</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="8" id="mevzuat-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="8" id="mevzuat-y">
+                </td>
+                <td class="info-col">8 Soru</td>
+            </tr>
+            <tr>
+                <td class="subject-col">ÖABT (Alan):</td>
+                <td class="input-group">
+                    <input type="number" min="0" max="50" id="oabt-d">
+                    <span>/</span>
+                    <input type="number" min="0" max="50" id="oabt-y">
+                </td>
+                <td class="info-col">50 Soru</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="calculate-btn" onclick="hesapla()">Hesapla</button>
+
+    <div class="results" id="sonuc-kutusu">
+        <h3>Hesaplama Sonuçları</h3>
+        <p>GK-GY Netiniz: <strong id="gkgy-net">0</strong></p>
+        <p>ÖABT Netiniz: <strong id="oabt-net">0</strong></p>
+        <p>Tahmini Puanınız:</p>
+        <div class="score" id="toplam-puan">0.00</div>
+    </div>
+</div>
+
+<script>
+function hesapla() {
+    const sd = parseFloat(document.getElementById('sozel-d').value) || 0;
+    const sy = parseFloat(document.getElementById('sozel-y').value) || 0;
+    const sayd = parseFloat(document.getElementById('sayisal-d').value) || 0;
+    const sayy = parseFloat(document.getElementById('sayisal-y').value) || 0;
+    const td = parseFloat(document.getElementById('tarih-d').value) || 0;
+    const ty = parseFloat(document.getElementById('tarih-y').value) || 0;
+    const cd = parseFloat(document.getElementById('cografya-d').value) || 0;
+    const cy = parseFloat(document.getElementById('cografya-y').value) || 0;
+    const md = parseFloat(document.getElementById('meb-d').value) || 0;
+    const my = parseFloat(document.getElementById('meb-y').value) || 0;
+    const mevd = parseFloat(document.getElementById('mevzuat-d').value) || 0;
+    const mevy = parseFloat(document.getElementById('mevzuat-y').value) || 0;
+    const od = parseFloat(document.getElementById('oabt-d').value) || 0;
+    const oy = parseFloat(document.getElementById('oabt-y').value) || 0;
+
+    const sozelNet = Math.max(0, sd - (sy / 4));
+    const sayisalNet = Math.max(0, sayd - (sayy / 4));
+    const tarihNet = Math.max(0, td - (ty / 4));
+    const cografyaNet = Math.max(0, cd - (cy / 4));
+    const mebNet = Math.max(0, md - (my / 4));
+    const mevzuatNet = Math.max(0, mevd - (mevy / 4));
+    const oabtNet = Math.max(0, od - (oy / 4));
+
+    const gkgyNet = sozelNet + sayisalNet + tarihNet + cografyaNet + mebNet + mevzuatNet;
+
+    const gkgyPuan = (gkgyNet / 80) * 50;
+    const oabtPuan = (oabtNet / 50) * 50;
+    const tabanPuan = 40; 
+    let toplamPuan = tabanPuan + (gkgyPuan + oabtPuan) * 0.6; 
+    
+    if(toplamPuan > 100) toplamPuan = 100;
+
+    document.getElementById('gkgy-net').innerText = gkgyNet.toFixed(2);
+    document.getElementById('oabt-net').innerText = oabtNet.toFixed(2);
+    document.getElementById('toplam-puan').innerText = toplamPuan.toFixed(3);
+    
+    document.getElementById('sonuc-kutusu').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
