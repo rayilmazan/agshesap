@@ -13,259 +13,82 @@
             color: #333;
         }
 
-        .header, .footer {
-            background-color: #ffffff;
-            padding: 15px 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-        }
-
-        .header img {
-            height: 30px;
-            margin-right: 15px;
-        }
-
-        .header h1 {
-            font-size: 1.5em;
-            margin: 0;
-        }
-
         .main-content {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
         }
 
-        .main-content h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .main-content p {
-            text-align: center;
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         th, td {
-            text-align: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
         }
 
         th {
-            background-color: #f9f9f9;
             font-weight: bold;
+            padding-bottom: 20px;
+        }
+
+        .header-title {
+            font-size: 18px;
+            color: #444;
         }
 
         .subject-col {
             text-align: left;
-        }
-
-        .inputs-col {
-            white-space: nowrap;
-        }
-
-        input[type="number"] {
-            width: 60px;
-            padding: 8px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .calculate-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2em;
-            color: white;
-            background-color: #27ae60;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .calculate-btn:hover {
-            background-color: #219150;
-        }
-
-        .results {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .results h3 {
-            margin-top: 0;
-        }
-
-        .score {
-            font-size: 3em;
             font-weight: bold;
-            color: #27ae60;
-            margin: 20px 0;
-        }
-
-        .footer {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .footer a {
-            text-decoration: none;
-            color: #666;
-            margin-left: 15px;
-        }
-
-        .footer a:hover {
             color: #333;
-        }
-
-    </style>
-</head>
-<body>
-
-<div class="header">
-    <img src="https://via.placeholder.com/30x30/27ae60/ffffff?text=A" alt="AGS Logo">
-    <h1>AGS Puan Hesaplama Portal</h1>
-</div>
-
-<div class="main-content">
-    <h2>Okul Öncesi Bölümü AGS Puan Hesaplama Modülü</h2>
-    <p>Lütfen sınavda yaptığınız doğru ve yanlış sayılarını giriniz. Netleriniz ve puanınız, okul öncesi bölümü ağırlık katsayılarına göre hesaplanacaktır.</p>
-
-    <table>
-        <thead>
-            <tr>
-                <th class="subject-col">Konu Adı (Soru Sayısı)</th>
-                <th>Doğru</th>
-                <th>Yanlış</th>
-                <th>Net Skor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="subject-col">Sözel Yetenek (15 Soru)Oluşturduğum görseldeki tasarıma uygun olarak hazırladığım HTML kodlarını aşağıda bulabilirsin. Bu kodları bir `.html` dosyasına yapıştırarak internet tarayıcın ile açabilirsin.
-
-```html
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGS Puan Hesaplama Modülü - Okul Öncesi</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
-        }
-
-        .header, .footer {
-            background-color: #ffffff;
-            padding: 15px 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-        }
-
-        .header img {
-            height: 30px;
-            margin-right: 15px;
-        }
-
-        .header h1 {
-            font-size: 1.5em;
-            margin: 0;
-        }
-
-        .main-content {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-
-        .main-content h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .main-content p {
-            text-align: center;
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        th, td {
-            text-align: center;
-            padding: 12px 15px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f9f9f9;
-            font-weight: bold;
-        }
-
-        .subject-col {
-            text-align: left;
-        }
-
-        input[type="number"] {
-            width: 60px;
-            padding: 8px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            width: 50%;
         }
 
         .input-group {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 35%;
         }
 
         .input-group span {
-            margin: 0 10px;
-            font-size: 1.2em;
+            margin: 0 8px;
+            font-size: 1.5em;
+            color: #999;
+        }
+
+        .info-col {
+            text-align: right;
+            color: #666;
+            width: 15%;
+        }
+
+        input[type="number"] {
+            width: 55px;
+            height: 35px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Input oklarını gizleme */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
         }
 
         .calculate-btn {
@@ -279,6 +102,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-weight: bold;
         }
 
         .calculate-btn:hover {
@@ -291,144 +115,155 @@
             background-color: #f9f9f9;
             border-radius: 8px;
             text-align: center;
-        }
-
-        .results h3 {
-            margin-top: 0;
+            display: none; /* Hesaplama yapılana kadar gizli kalır */
         }
 
         .score {
-            font-size: 3em;
+            font-size: 2.5em;
             font-weight: bold;
             color: #27ae60;
-            margin: 20px 0;
+            margin: 10px 0;
         }
-
-        .footer {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .footer a {
-            text-decoration: none;
-            color: #666;
-            margin-left: 15px;
-        }
-
-        .footer a:hover {
-            color: #333;
-        }
-
     </style>
 </head>
 <body>
 
-<div class="header">
-    <img src="[https://via.placeholder.com/30x30/27ae60/ffffff?text=A](https://via.placeholder.com/30x30/27ae60/ffffff?text=A)" alt="AGS Logo">
-    <h1>AGS Puan Hesaplama Portal</h1>
-</div>
-
 <div class="main-content">
-    <h2>Okul Öncesi Bölümü AGS Puan Hesaplama Modülü</h2>
-    <p>Lütfen sınavda yaptığınız doğru ve yanlış sayılarını giriniz. Netleriniz ve puanınız, okul öncesi bölümü ağırlık katsayılarına göre hesaplanacaktır.</p>
-
     <table>
         <thead>
             <tr>
-                <th class="subject-col">Konu Adı (Soru Sayısı)</th>
-                <th>Doğru / Yanlış</th>
-                <th>Net Skor</th>
+                <th class="subject-col"></th>
+                <th class="header-title">Doğru &nbsp;&nbsp;/&nbsp;&nbsp; Yanlış</th>
+                <th class="info-col"></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="subject-col">Sözel Yetenek (15 Soru)</td>
+                <td class="subject-col">Sözel Yetenek:</td>
                 <td class="input-group">
-                    <input type="number" value="12" id="sozel-d">
+                    <input type="number" min="0" max="15" id="sozel-d">
                     <span>/</span>
-                    <input type="number" value="2" id="sozel-y">
+                    <input type="number" min="0" max="15" id="sozel-y">
                 </td>
-                <td>11.5</td>
+                <td class="info-col">15 Soru</td>
             </tr>
             <tr>
-                <td class="subject-col">Sayısal Yetenek (15 Soru)</td>
+                <td class="subject-col">Sayısal Yetenek:</td>
                 <td class="input-group">
-                    <input type="number" value="9" id="sayisal-d">
+                    <input type="number" min="0" max="15" id="sayisal-d">
                     <span>/</span>
-                    <input type="number" value="3" id="sayisal-y">
+                    <input type="number" min="0" max="15" id="sayisal-y">
                 </td>
-                <td>8.25</td>
+                <td class="info-col">15 Soru</td>
             </tr>
             <tr>
-                <td class="subject-col">Tarih (6 Soru)</td>
+                <td class="subject-col">Tarih:</td>
                 <td class="input-group">
-                    <input type="number" value="4" id="tarih-d">
+                    <input type="number" min="0" max="6" id="tarih-d">
                     <span>/</span>
-                    <input type="number" value="1" id="tarih-y">
+                    <input type="number" min="0" max="6" id="tarih-y">
                 </td>
-                <td>3.75</td>
+                <td class="info-col">6 Soru</td>
             </tr>
             <tr>
-                <td class="subject-col">Türkiye Coğrafyası (6 Soru)</td>
+                <td class="subject-col">Türkiye Coğrafyası:</td>
                 <td class="input-group">
-                    <input type="number" value="5" id="cografya-d">
+                    <input type="number" min="0" max="6" id="cografya-d">
                     <span>/</span>
-                    <input type="number" value="0" id="cografya-y">
+                    <input type="number" min="0" max="6" id="cografya-y">
                 </td>
-                <td>5.0</td>
+                <td class="info-col">6 Soru</td>
             </tr>
             <tr>
-                <td class="subject-col">Milli Eğitim Sistemi (30 Soru)</td>
+                <td class="subject-col">Milli Eğitim Sistemi:</td>
                 <td class="input-group">
-                    <input type="number" value="25" id="meb-d">
+                    <input type="number" min="0" max="30" id="meb-d">
                     <span>/</span>
-                    <input type="number" value="3" id="meb-y">
+                    <input type="number" min="0" max="30" id="meb-y">
                 </td>
-                <td>24.25</td>
+                <td class="info-col">30 Soru</td>
             </tr>
             <tr>
-                <td class="subject-col">Mevzuat (8 Soru)</td>
+                <td class="subject-col">Mevzuat:</td>
                 <td class="input-group">
-                    <input type="number" value="6" id="mevzuat-d">
+                    <input type="number" min="0" max="8" id="mevzuat-d">
                     <span>/</span>
-                    <input type="number" value="2" id="mevzuat-y">
+                    <input type="number" min="0" max="8" id="mevzuat-y">
                 </td>
-                <td>5.5</td>
+                <td class="info-col">8 Soru</td>
             </tr>
             <tr>
-                <td class="subject-col">ÖABT (Alan Bilgisi) (50 Soru)</td>
+                <td class="subject-col">ÖABT (Alan Bilgisi):</td>
                 <td class="input-group">
-                    <input type="number" value="42" id="oabt-d">
+                    <input type="number" min="0" max="50" id="oabt-d">
                     <span>/</span>
-                    <input type="number" value="5" id="oabt-y">
+                    <input type="number" min="0" max="50" id="oabt-y">
                 </td>
-                <td>40.75</td>
+                <td class="info-col">50 Soru</td>
             </tr>
         </tbody>
     </table>
 
-    <button class="calculate-btn">Puanımı Hesapla</button>
+    <button class="calculate-btn" onclick="hesapla()">Hesapla</button>
 
-    <div class="results">
-        <h3>Hesaplama Sonuçları (Örnek Veri)</h3>
-        <p>GK-GY Toplam Net: 58.25</p>
-        <p>ÖABT Net: 40.75</p>
-        <p>Tahmini AGS Puanı:</p>
-        <div class="score">89.412</div>
-        <p>* Not: Bu puan, varsayılan katsayılarla hesaplanmıştır. ÖSYM'nin güncel katsayılarını kullanmanızı öneririz.</p>
+    <div class="results" id="sonuc-kutusu">
+        <h3>Hesaplama Sonuçları</h3>
+        <p>Genel Kültür - Genel Yetenek Netiniz: <span id="gkgy-net">0</span></p>
+        <p>ÖABT (Alan Bilgisi) Netiniz: <span id="oabt-net">0</span></p>
+        <p>Tahmini AGS Puanınız:</p>
+        <div class="score" id="toplam-puan">0.00</div>
     </div>
 </div>
 
-<div class="footer">
-    <div>© 2024 AGS Puan Hesaplama. Tüm hakları saklıdır.</div>
-    <div>
-        <a href="#">Hakkımızda</a>
-        <a href="#">İletişim</a>
-    </div>
-</div>
+<script>
+function hesapla() {
+    // Input değerlerini al (boşsa 0 kabul et)
+    const sd = parseFloat(document.getElementById('sozel-d').value) || 0;
+    const sy = parseFloat(document.getElementById('sozel-y').value) || 0;
+    const sayd = parseFloat(document.getElementById('sayisal-d').value) || 0;
+    const sayy = parseFloat(document.getElementById('sayisal-y').value) || 0;
+    const td = parseFloat(document.getElementById('tarih-d').value) || 0;
+    const ty = parseFloat(document.getElementById('tarih-y').value) || 0;
+    const cd = parseFloat(document.getElementById('cografya-d').value) || 0;
+    const cy = parseFloat(document.getElementById('cografya-y').value) || 0;
+    const md = parseFloat(document.getElementById('meb-d').value) || 0;
+    const my = parseFloat(document.getElementById('meb-y').value) || 0;
+    const mevd = parseFloat(document.getElementById('mevzuat-d').value) || 0;
+    const mevy = parseFloat(document.getElementById('mevzuat-y').value) || 0;
+    const od = parseFloat(document.getElementById('oabt-d').value) || 0;
+    const oy = parseFloat(document.getElementById('oabt-y').value) || 0;
+
+    // Net Hesaplama (4 yanlış 1 doğruyu götürür)
+    const sozelNet = Math.max(0, sd - (sy / 4));
+    const sayisalNet = Math.max(0, sayd - (sayy / 4));
+    const tarihNet = Math.max(0, td - (ty / 4));
+    const cografyaNet = Math.max(0, cd - (cy / 4));
+    const mebNet = Math.max(0, md - (my / 4));
+    const mevzuatNet = Math.max(0, mevd - (mevy / 4));
+    const oabtNet = Math.max(0, od - (oy / 4));
+
+    // GKGY Toplam Net
+    const gkgyNet = sozelNet + sayisalNet + tarihNet + cografyaNet + mebNet + mevzuatNet;
+
+    // Okul Öncesi için AGS Puan Simülasyonu 
+    // (ÖSYM henüz resmi katsayıları açıklamadığı için standart 100'lük sisteme uyarlanmış tahmini formüldür)
+    // ÖABT %50 ağırlıklı, GKGY testleri soru sayılarına göre kalan %50'yi paylaşır.
+    const gkgyPuan = (gkgyNet / 80) * 50;
+    const oabtPuan = (oabtNet / 50) * 50;
+    const tabanPuan = 40; // ÖSYM standart taban puan simülasyonu
+    let toplamPuan = tabanPuan + (gkgyPuan + oabtPuan) * 0.6; 
+    
+    if(toplamPuan > 100) toplamPuan = 100;
+
+    // Sonuçları Ekrana Yazdır
+    document.getElementById('gkgy-net').innerText = gkgyNet.toFixed(2);
+    document.getElementById('oabt-net').innerText = oabtNet.toFixed(2);
+    document.getElementById('toplam-puan').innerText = toplamPuan.toFixed(3);
+    
+    // Sonuç kutusunu görünür yap
+    document.getElementById('sonuc-kutusu').style.display = 'block';
+}
+</script>
 
 </body>
 </html>
